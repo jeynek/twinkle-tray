@@ -63,7 +63,7 @@ export default function DDCCISliders(props) {
                             <div className="feature-icon"><span className="icon vfix">&#xE839;</span></div>
                             <div style={{ display: "flex", flexWrap: "wrap", gap: "3px" }}>
                                 { [15, 17, 18].map(e =>
-                                    <button key={e + monitor.id} className={values["0x60"][0] === e ? "button disabled" : "button"} disabled={values["0x60"][0] === e} onClick={() => { setVCP(monitor.id, parseInt(vcp), e); changeInputsState(e) }}>{inputsData[e] || `Input (${e})`}</button>
+                                    <button key={e + monitor.id} className="button" onClick={() => { setVCP(monitor.id, parseInt(vcp), e); changeInputsState(e) }}>{inputsData[e] || `Input (${e})`}</button>
                                 )}
                             </div>
                         </div >
