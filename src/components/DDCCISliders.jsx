@@ -15,22 +15,7 @@ export default function DDCCISliders(props) {
     const [values, setValues] = useObject(defaultValues)
 
     const inputsData = {
-        1: "VGA-1",
-        2: "VGA-2",
-        3: "DVI-1",
-        4: "DVI-2",
-        5: "Composite video 1",
-        6: "Composite video 2",
-        7: "S-Video-1",
-        8: "S-Video-2",
-        9: "Tuner-1",
-        10: "Tuner-2",
-        11: "Tuner-3",
-        12: "Component video (YPrPb/YCrCb) 1",
-        13: "Component video (YPrPb/YCrCb) 2",
-        14: "Component video (YPrPb/YCrCb) 3",
-        15: "DisplayPort-1",
-        16: "DisplayPort-2",
+        15: "DisplayPort",
         17: "HDMI-1",
         18: "HDMI-2"
     }
@@ -77,8 +62,8 @@ export default function DDCCISliders(props) {
                         <div className="feature-row feature-inputs" key={monitor.key + "_" + vcp}>
                             <div className="feature-icon"><span className="icon vfix">&#xE839;</span></div>
                             <div style={{ display: "flex", flexWrap: "wrap", gap: "3px" }}>
-                                {values["0x60"][1].map(e =>
-                                    <button key={e + monitor.id} className={values["0x60"][0] === e ? "button disabled" : "button"} disabled={values["0x60"][0] === e} onClick={() => { setVCP(monitor.id, parseInt(vcp), e); changeInputsState(e) }}>{inputsData[e]}</button>
+                                { [15, 17, 18].map(e =>
+                                    <button key={e + monitor.id} className={values["0x60"][0] === e ? "button disabled" : "button"} disabled={values["0x60"][0] === e} onClick={() => { setVCP(monitor.id, parseInt(vcp), e); changeInputsState(e) }}>{inputsData[e] || `Input (${e})`}</button>
                                 )}
                             </div>
                         </div >
