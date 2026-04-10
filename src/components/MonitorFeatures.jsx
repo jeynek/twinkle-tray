@@ -78,7 +78,7 @@ export default function MonitorFeatures(props) {
                         <>
                             <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                                 { [15, 17, 18].map(e =>
-                                    <div key={e + monitor.id} className="button" style={{ color: monitor.features[vcp] === e ? "red" : '' }} disabled={monitor.features[vcp] === e}>{inputsData[e] || `${T.t("PANEL_LABEL_INPUTS")} (${e})`}</div>
+                                    <div key={e + monitor.id} className="button" onClick={() => { setVCP(monitor.id, parseInt(vcp), e); }}>{inputsData[e] || `${T.t("PANEL_LABEL_INPUTS")} (${e})`}</div>
                                 )}
                             </div>
                             <div style={{ marginTop: "10px" }}>
